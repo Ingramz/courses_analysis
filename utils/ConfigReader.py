@@ -21,6 +21,12 @@ class Config(object):
         params['start_urls'] = params['start_urls'].split(';')
         return params
 
+    def get_ois7_info(self):
+        params = dict(self.config.items("ois7"))
+        params['allowed_domains'] = params['allowed_domains'].split(';')
+        params['start_urls'] = params['start_urls'].split(';')
+        return params
+
     def get_allowed_semesters(self):
         return parse_semesters(self.config.get("general", "allowed_semesters"))
 

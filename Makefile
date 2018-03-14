@@ -5,10 +5,10 @@ clean-pyc:
 	find . -name '*.pyc' -exec rm --force {} +
 	find . -name '*.pyo' -exec rm --force {} +
 	find . -name '*~' -exec rm --force  {} +
-	
+
 clean-stale:
 	python db/CleanDatabase.py $(SEMESTERS)
-	find ./raw_data -type d -empty -delete	
+	find ./raw_data -type d -empty -delete
 
 clean-analysis:
 ifeq ($(fc),1)
@@ -21,9 +21,12 @@ endif
 
 scrape-courses:
 	scrapy crawl courses -a semesters=$(SEMESTERS)
-	
+
 scrape-moodle:
 	scrapy crawl moodle
+
+scrape-ois7:
+	scrapy crawl ois7
 
 scrape-teachers:
 	scrapy crawl teacher -o cleaning/teachers.json

@@ -1,3 +1,8 @@
+import sys
+import os.path
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
 from html2txt import Html2txt
 from pdf2txt import Pdf2Txt
 from pptx2txt import Pptx2Txt
